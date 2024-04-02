@@ -1,47 +1,71 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+    import { computed, ref } from 'vue';
+    import { useStore } from 'vuex';
+
+    const store = useStore();
+    const activeUser = computed(() => store.state.activeUser);
+
+    import SidebarItem from './components/SidebarItem.vue';
+    import ProfileFull from './components/ProfileFull.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <header>
+        <h1>Жилфонд</h1>
+        <p>Пользователь</p>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div class="employee-search">
+        <SidebarItem class="sidebar" />
+        <ProfileFull class="user-profile" :user="activeUser" />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use './styles/main' as *;
+
 header {
-  line-height: 1.5;
+    display: flex;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding-bottom: 1.75rem;
+
+    width: 100%;
+
+    h1 {
+        color: $color-header;
+        font-weight: 700;
+    }
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+.employee-search {
+    @include shadow;
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+    display: grid;
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+    border-radius: $border-radius-base;
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-column-gap: 0.1rem;
+
+    overflow: clip;
+
+    width: 100%;
+    height: 100%;
+
+    .sidebar {
+        grid-row: 1/-1;
+        grid-column: 1/6;
+    }
+
+    .user-profile {
+        grid-row: 1/-1;
+        grid-column: 6/-1;
+    }
 }
 </style>

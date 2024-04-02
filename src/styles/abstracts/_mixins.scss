@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+@mixin border {
+    border: 0.1rem solid $color-border;
+    border-radius: $border-radius-base;
+}
+
+@mixin label {
+    font-family: "Montserat", sans-serif;
+    font-size: $font-size-base;
+    font-weight: 600;
+}
+
+@mixin shadow {
+    box-shadow: 0px 0px 10px $color-shadow;
+}
+
+@mixin flex-column($row-gap) {
+    display: flex;
+    flex-flow: column;
+    row-gap: $row-gap;
+}

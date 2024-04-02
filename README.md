@@ -1,29 +1,17 @@
-# employee-search
+# Basic User Search
 
-This template should help get you started developing with Vue 3 in Vite.
+Basic Vue.js SPA built as a test task for a frontend position.
 
-## Recommended IDE Setup
+Tools used:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+* Vue.js
+* Vuex
+* Vite (build system)
+* Sass (SCSS syntax)
 
-## Customize configuration
+Features implemented as part of the initial requirements:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+* Component styles are scoped (isolated from each other)
+* Multi-user search using ID or Username field (use commas to separate users)
+* Non-fuzzy search to save API calls and computing power
+* Vuex's actions and mutations dynamically manipulate the store: the sidebar passes the necessary data to the user info section to the right on user input. For example, a successful search sets the first user found as active, putting their data in the section to the right; a user can also be set to active by clicking the corresponding button in the sidebar; clearing the search form also clear the main info section to the right 

@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as *;
+
+#app {
+    display: flex;
+    flex-flow: column nowrap;
+
+    margin: 0 auto;
+    padding: 2rem;
+    font-weight: normal;
+
+    height: 100%;
+    width: 100%;
+    max-width: 1266px;
+}
+
+a,
+.green {
+    text-decoration: none;
+    color: hsla(160, 100%, 37%, 1);
+    transition: 0.4s;
+    padding: 3px;
+}
+
+@media (hover: hover) {
+    a:hover {
+        background-color: hsla(160, 100%, 37%, 0.2);
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        display: flex;
+        place-items: center;
+    }
+}
+
+* {
+    transition: all 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+}
+
+body {
+    height: 100vh;
+    color: $color-text;
+    background: $color-background;
+    transition:
+    color 0.5s,
+    background-color 0.5s;
+    line-height: 1.6;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+    cursor: pointer;
+}
